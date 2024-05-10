@@ -1,0 +1,5 @@
+!yamlscript/v0
+
+defn main():
+    word =: "banana"
+    say: word
