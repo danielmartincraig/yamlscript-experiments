@@ -1,11 +1,16 @@
 !yamlscript/v0
 
 defn dot-product(x, y):
-    reduce +:
-        map *: x y
-
+    reduce(+ map(* x y))
+        
 defn transpose(m):
-    apply: map vector m
+    apply(map, vector, m)
+
+defn row-mult(mat, row):
+    map(partial(dot-product, row), transpose(mat))
+
+defn matrix-mult(mat1, mat2):
+    map(partial(row-mult, mat2), mat1)
 
 defn main():
     m1 =:: 
@@ -13,5 +18,10 @@ defn main():
         - [4, 5, 6]
         - [7, 8, 9]
 
+    m2 =:: 
+        - [0, 0, 1]
+        - [0, 1, 0]
+        - [1, 0, 0]
+
     say: 
-        transpose: m1
+        matrix-mult(m1, m2)
