@@ -1,5 +1,7 @@
 !yamlscript/v0
 
+# Code adapted from Sam Ritchie's code https://stackoverflow.com/q/8899773
+
 defn dot-product(x, y):
     reduce(+ map(* x y))
         
