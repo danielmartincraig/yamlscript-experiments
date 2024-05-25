@@ -1,0 +1,7 @@
+!yamlscript/v0
+
+# require clojure.string => str
+
+defn main():
+    result =: str/reverse("hello world")
+    say: result
